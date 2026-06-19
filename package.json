@@ -1,0 +1,100 @@
+{
+  "name": "settings-toggler",
+  "displayName": "Settings Toggler",
+  "description": "Toggle and cycle VS Code settings with keyboard shortcuts and status bar icons",
+  "version": "1.1.0",
+  "publisher": "nnyj",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nnyj/vscode-settings-toggler"
+  },
+  "icon": "images/icon.png",
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "settings.cycle",
+        "title": "Settings Toggler: Cycle Setting"
+      }
+    ],
+    "configuration": {
+      "properties": {
+        "settings.cycle": {
+          "type": "array",
+          "description": "Pre-defined setting cycles. Each entry creates a named command `settings.cycle.<id>`.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique command suffix. Registers as `settings.cycle.<id>`."
+              },
+              "values": {
+                "type": "array",
+                "description": "Array of setting objects to cycle through. Optional for boolean settings."
+              },
+              "overrideWorkspaceSettings": {
+                "type": "boolean",
+                "default": false,
+                "description": "Override workspace settings when cycling."
+              }
+            }
+          }
+        },
+        "settings-toggler.statusBar": {
+          "type": "array",
+          "default": [],
+          "description": "Status bar toggle icons. Each entry adds a clickable icon to the status bar.",
+          "items": {
+            "type": "object",
+            "required": ["property", "icon"],
+            "properties": {
+              "property": {
+                "type": "string",
+                "description": "VS Code setting to toggle (e.g. `editor.codeLens`)."
+              },
+              "icon": {
+                "type": "string",
+                "description": "Codicon name (e.g. `eye`, `gear`, `text-size`). See https://microsoft.github.io/vscode-codicons/"
+              },
+              "label": {
+                "type": "string",
+                "description": "Optional label shown next to the icon."
+              },
+              "values": {
+                "type": "array",
+                "description": "Values to cycle through. Optional for boolean settings (auto-toggles true/false)."
+              },
+              "alignment": {
+                "type": "string",
+                "enum": ["left", "right"],
+                "default": "right",
+                "description": "Status bar side."
+              },
+              "priority": {
+                "type": "number",
+                "default": 0,
+                "description": "Position priority. Higher = closer to the edge."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.4.0"
+  }
+}
