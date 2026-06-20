@@ -2,9 +2,7 @@
 
 Toggle and cycle any VS Code setting with keyboard shortcuts and status bar icons.
 
-![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/nnyj.settings-toggler?style=for-the-badge)
-![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/nnyj.settings-toggler?style=for-the-badge)
-![License](https://img.shields.io/github/license/nnyj/vscode-settings-toggler?style=for-the-badge)
+[![License](https://img.shields.io/github/license/nnyj/vscode-settings-toggler?style=for-the-badge)](https://github.com/nnyj/vscode-settings-toggler/blob/main/LICENSE)
 
 ## Features
 
@@ -66,6 +64,8 @@ Bind in `keybindings.json`:
 ```
 
 ### Status bar icons
+
+![Status bar toggle demo](images/demo_status_bar.gif)
 
 Add to `settings.json` to show clickable toggle icons in the status bar:
 

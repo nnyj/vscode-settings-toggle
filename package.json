@@ -2,7 +2,7 @@
   "name": "settings-toggler",
   "displayName": "Settings Toggler",
   "description": "Toggle and cycle VS Code settings with keyboard shortcuts and status bar icons",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "nnyj",
   "engines": {
     "vscode": "^1.75.0"
